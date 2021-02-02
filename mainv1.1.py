@@ -156,6 +156,7 @@ def cluster():
                     index = stations.index(label[visit_segment])
                     stations_error_cnt[index] += 1
                  # Display the resulting frame
+                cv.rectangle(frame,(0,0),(200,60),(0,0,0),cv.FILLED)
                 cv.putText(frame, text, (0,50), font, 1, (255, 255, 255), 3, cv.LINE_AA)
 
             cv.imshow('Frame', frame)
