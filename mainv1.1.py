@@ -158,7 +158,7 @@ def cluster():
                  # Display the resulting frame
                 cv.putText(frame, text, (0,50), font, 1, (255, 255, 255), 3, cv.LINE_AA)
 
-            # cv.imshow('Frame', frame)
+            cv.imshow('Frame', frame)
 
                 # Press Q on keyboard to  exit
             if cv.waitKey(25) & 0xFF == ord('q'):
