@@ -208,8 +208,7 @@ def generate_key_frames(feat):
     k = optimal_k(feat)
     kmeans = KMeans(n_clusters = k).fit(feat) # Initialize the clusters 
     
-    return kmeans.cluster_centers_
-
+    return kmeans.cluster_centers_.flatten()
 if __name__ == '__main__':
     for index in range(5):
         i = index + 1
