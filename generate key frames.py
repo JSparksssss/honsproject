@@ -244,31 +244,3 @@ if __name__ == '__main__':
     # infile = open("VGG16visit_keyframes_sil",'rb')
     # visit_features = pickle.load(infile)
     # infile.close()
-   
-    stations = sorted(set(labels),key=labels.index)
-
-    feat = np.array(visit_features)
-    # # reshape so that there are some samples of 4096 vectors
-    feat = feat.reshape(-1,4096)
-
-    #Plot the chord graph
-    matrixA = [[0]*9 for i in range(9)]
-    matrixA = np.array(matrixA)
-    matrixX = [[0]*9 for i in range(9)]
-    matrixX = np.array(matrixX)
-    names = ['1','2','3','4','5','6','7','8','9','Entrance','3D-Lab','Kitchen 1','Caffe-area','Lab','Printer 1','Kitchen 2','Printer 2','Office']
-
-    loop_count = 0
-    for index,label in enumerate(cluster.labels_):
-        visit = labels[index]
-        col = stations.index(visit)
-        row = label
-        matrixA[row][col] += 1
-        loop_count+=1
-    matrixB = matrixA.T
-    matrixA = np.hstack((matrixX,matrixA))
-    matrixB = np.hstack((matrixB,matrixX))
-    matrix = np.vstack((matrixA,matrixB))
-    matrix = matrix.tolist()
-    Chord(matrix, names).to_html()
-    print("Chord graph is formulated")
