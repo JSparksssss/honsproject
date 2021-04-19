@@ -1,4 +1,5 @@
-#This file can generate visit features and keyframes
+# This file can generate visit features and keyframes
+
 # for loading/processing the images  
 from keras.preprocessing.image import load_img 
 from keras.preprocessing.image import img_to_array 
@@ -242,8 +243,8 @@ def calculate_features():
 
 if __name__ == '__main__':
     
-    #To calculate features from all videos and output a pickle file for future research
-    #If there exists a visit_features file, please comment the code in the next row
+    # To calculate features from all videos and output a pickle file for future research
+    # If there exists a visit_features file, please comment the code in the next row
     calculate_features()
 
     infile = open("VGG16visit_features",'rb')
@@ -252,10 +253,10 @@ if __name__ == '__main__':
 
     visit_segment = 0
     
-    #Use a dict to store keyframe
+    # Use a dict to store keyframe
     visit_keyframes = {} 
     for visit in visit_features.values():
-        #cluster frames in visit to get interia of clusters as keyframe 
+        # cluster frames in visit to get interia of clusters as keyframe 
         feat = np.array(visit)
         feat = feat.reshape(-1,4096)
         visit_keyframe = generate_key_frames(feat)
